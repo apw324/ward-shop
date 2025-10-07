@@ -1,0 +1,30 @@
+const express = require('express');
+const app = express();
+const stripe = require('stripe')('YOUR_STRIPE_SECRET_KEY'); // Replace with your Stripe secret key
+const cors = require('cors');
+
+app.use(cors());
+app.use(express.static('')); // Serves your index.html
+app.use(express.json());
+
+app.post('/create-checkout-session', async (req, res) => {
+  try {
+    const { line_items } = req.body;
+
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: line_items,
+      mode: 'payment',
+      success_url: 'http://localhost:4242/success.html',
+      cancel_url: 'http://localhost:4242/cancel.html'
+    });
+
+    res.json({ id: session.id });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error creating Stripe session' });
+  }
+});
+
+const PORT = 4242;
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ward Mediterranean</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #faf6f1;
+    color: #3b2f1b;
+    display: flex;
+    line-height: 1.6;
+  }
+  /* Sidebar */
+  .side-images {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #e9dcc9;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .side-images img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+    flex-grow: 1;
+  }
+  .side-images .logo {
+    max-height: 120px;
+    flex-grow: 0;
+    margin-bottom: 10px;
+    object-fit: contain;
+    opacity: 1;
+  }
+  /* Main content */
+  .content {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    position: relative;
+    padding-bottom: 2rem;
+  }
+  header {
+    text-align: center;
+    padding: 1.8rem 1rem;
+    background-color: #f4efe9;
+    border-bottom: 1px solid #d6c8a3;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    color: #705a2b;
+    margin: 0;
+    font-size: 2.3rem;
+  }
+  header p {
+    color: #8a7750;
+    margin-top: 0.3rem;
+    font-size: 1.1rem;
+  }
+  .section {
+    padding: 1.5rem 1rem;
+    max-width: 900px;
+    margin: auto;
+  }
+  /* About section */
+  .about-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #3e2e1b;
+    margin-bottom: 1.5rem;
+  }
+  .about-text span {
+    color: #b9922c;
+    font-weight: bold;
+  }
+  /* Products section */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  .card {
+    background-color: #fffdf9;
+    border: 1px solid #d2b97b;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  .card h3 {
+    color: #705a2b;
+    margin-bottom: 0.5rem;
+  }
+  .card p {
+    color: #3b2f1b;
+    font-size: 0.95rem;
+  }
+  .card button {
+    margin-top: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    background-color: #b9922c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .card button:hover {
+    background-color: #a68220;
+  }
+  /* Cart section */
+  .cart ul {
+    margin: 0;
+    padding-left: 0;
+  }
+  .cart li {
+    margin-bottom: 0.5rem;
+  }
+  .cart button {
+    margin-top: 0.5rem;
+  }
+  /* Form section */
+  .form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+  .form-section input, .form-section textarea {
+    padding: 0.6rem;
+    border: 1px solid #c8b27d;
+    border-radius: 8px;
+    background-color: #fffdf9;
+    color: #3b2f1b;
+  }
+  .form-section button {
+    padding: 0.7rem;
+    background-color: #b9922c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  .form-section button:hover {
+    background-color: #a68220;
+  }
+  /* Contact section */
+  .contact-box {
+    border: 1px solid #c8b27d;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    max-width: 400px;
+    margin: auto;
+    background-color: #fffdf9;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  .contact-box a, .contact-box strong {
+    color: #705a2b;
+    text-decoration: none;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    color: #8a7750;
+    font-size: 0.9rem;
+    background-color: #f4efe9;
+  }
+  @media screen and (max-width: 768px) {
+    body { flex-direction: column; }
+    .side-images {
+      position: relative;
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      overflow-x: auto;
+      background-color: #f4efe9;
+    }
+    .side-images img {
+      flex-grow: 0;
+      width: 120px;
+      height: auto;
+      margin: 0 5px;
+    }
+    .content { margin-left: 0; width: 100%; padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="side-images">
+    <img src="ChatGPT Image Oct 6, 2025, 09_21_31 PM.png" alt="Logo" class="logo">
+    <img src="czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYyMjgwOTEyLXdpa2ltZWRpYS1pbWFnZS1rb3dzMDF2Yi5qcGc.webp" alt="Olive Oil">
+    <img src="Mahjoub-Olive-trees-3.jpg" alt="Olive Grove">
+    <img src="olive.png" alt="Bottle">
+  </div>
+
+  <div class="content">
+    <!-- Header -->
+    <header>
+      <h1>Ward Mediterranean</h1>
+      <p>Authentic Tunisian Olive Oil, Crafted with Tradition</p>
+    </header>
+
+    <!-- About Section -->
+    <section class="section">
+      <div class="about-text">
+        <span>Ward Mediterranean</span> imports high-quality extra virgin olive oil sourced from family-owned groves across Tunisia. 
+        We focus on authenticity, sustainability, and flavor — bringing the warmth of the Mediterranean to kitchens across America. 
+        Each batch is carefully selected, cold-pressed, and bottled with care to preserve its natural richness and aroma.
+      </div>
+    </section>
+
+    <!-- Products / Shop Section -->
+    <section class="section">
+      <h2>Our Offerings</h2>
+      <div class="products" id="products">
+        <div class="card" data-id="1" data-name="250 ml – Tasting & Gifts" data-price="15">
+          <h3>250 ml – Tasting & Gifts</h3>
+          <p>Small, elegant bottles perfect for sampling our rich olive oil or giving as a gourmet gift.</p>
+          <p><strong>Price: $15</strong></p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="card" data-id="2" data-name="500 ml – Everyday Use" data-price="25">
+          <h3>500 ml – Everyday Use</h3>
+          <p>Ideal for daily cooking, drizzling, and finishing dishes with the authentic taste of Tunisia.</p>
+          <p><strong>Price: $25</strong></p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="card" data-id="3" data-name="1 L – Family & Frequent Cooks" data-price="45">
+          <h3>1 L – Family & Frequent Cooks</h3>
+          <p>A generous size for families or frequent cooks who want to share the Mediterranean experience.</p>
+          <p><strong>Price: $45</strong></p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Cart -->
+      <div class="cart" style="margin-top:1.5rem; padding:1rem; border:1px solid #d2b97b; border-radius:10px; background:#fffdf9;">
+        <h3>Your Cart</h3>
+        <ul id="cart-items"></ul>
+        <p id="cart-total"><strong>Total: $0</strong></p>
+        <button id="checkout-button" style="padding:0.7rem; background:#b9922c; color:#fff; border:none; border-radius:8px; cursor:pointer;">Checkout</button>
+      </div>
+    </section>
+
+    <!-- Contact / Shop Inquiry -->
+    <section class="section form-section">
+      <h2>Contact Us</h2>
+      <form action="https://formspree.io/f/xyzneazn" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="_replyto" placeholder="Your Email" required>
+        <input type="text" name="subject" placeholder="Subject (e.g., Product Inquiry, Order Question)" required>
+        <textarea name="message" rows="4" placeholder="Tell us how we can help you or ask about our products"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <p style="margin-top:0.5rem; text-align:center; color:#8a7750; font-size:0.9rem;">
+        We respond promptly—usually within a few hours.
+      </p>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="section">
+      <div class="contact-box">
+        <p>Email: <a href="mailto:info@wardmediterranean.com">info@wardmediterranean.com</a></p>
+        <p>Phone: <strong>201-961-2651</strong></p>
+        <p>Location: North New Jersey, USA</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Ward Mediterranean. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Stripe + Cart Script -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    // Cart logic
+    const cart = [];
+    const cartItemsEl = document.getElementById('cart-items');
+    const cartTotalEl = document.getElementById('cart-total');
+
+    function updateCart() {
+      cartItemsEl.innerHTML = '';
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+        const li = document.createElement('li');
+        li.textContent = `${item.name} x ${item.quantity} - $${item.price * item.quantity}`;
+        cartItemsEl.appendChild(li);
+      });
+      cartTotalEl.innerHTML = `<strong>Total: $${total}</strong>`;
+    }
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', e => {
+        const card = e.target.closest('.card');
+        const id = card.dataset.id;
+        const name = card.dataset.name;
+        const price = parseFloat(card.dataset.price);
+
+        const existing = cart.find(i => i.id === id);
+        if (existing) { existing.quantity += 1; }
+        else { cart.push({ id, name, price, quantity: 1 }); }
+        updateCart();
+      });
+    });
+
+    // Stripe checkout
+    const stripe = Stripe('YOUR_STRIPE_PUBLISHABLE_KEY'); // Replace with your key
+    document.getElementById('checkout-button').addEventListener('click', async () => {
+      if(cart.length === 0){ alert('Your cart is empty!'); return; }
+      const line_items = cart.map(item => ({
+        price_data: { currency: 'usd', product_data: { name: item.name }, unit_amount: item.price * 100 },
+        quantity: item.quantity
+      }));
+
+      const response = await fetch('/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ line_items })
+      });
+
+      const session = await response.json();
+      stripe.redirectToCheckout({ sessionId: session.id });
+    });
+  </script>
+
+</body>
+</html>
